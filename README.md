@@ -74,13 +74,7 @@ Control the training by modifying the default values for the following parameter
 > - for the lyrics model: `--modality=lyrics`  
 > - for the comments model: `--modality=comments`  
 
-<br/>  
-
-## To Do
-
-> Write `help` for arguments.  
-
-<br/>  
+<br/>    
 
 ### Tools  
 `PyTorch`, `librosa`, `NLTK`, `Word2Vec`
