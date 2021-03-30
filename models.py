@@ -63,7 +63,7 @@ class TextNet(nn.Module):
         num_hidden = 32
         out_size = 2
 
-        # Create and freeze weights for the embedding layer
+        # Load weights and freeze gradients for the embedding layer
         self._emb = nn.Embedding.from_pretrained(embedding_matrix)
 
         self._conv = nn.Sequential(nn.Conv2d(in_ch, num_filters, (10, num_feats), 1),
