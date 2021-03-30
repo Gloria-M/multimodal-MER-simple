@@ -1,8 +1,15 @@
+"""
+This module contains the definitions of Neural Network models used for training on audio or text features.
+"""
 import torch
 import torch.nn as nn
 
 
 class AudioNet(nn.Module):
+    """
+    This class contains the definition of the architecture and the forward-pass of the model to be trained
+     on audio features.
+    """
     def __init__(self):
         super().__init__()
 
@@ -43,6 +50,10 @@ class AudioNet(nn.Module):
 
 
 class TextNet(nn.Module):
+    """
+    This class contains the definition of the architecture and the forward-pass of the model to be trained
+     on lyrics or comments features.
+    """
     def __init__(self, embedding_matrix):
         super().__init__()
 
@@ -52,6 +63,7 @@ class TextNet(nn.Module):
         num_hidden = 32
         out_size = 2
 
+        # Create and freeze weights for the embedding layer
         self._emb = nn.Embedding.from_pretrained(embedding_matrix)
 
         self._conv = nn.Sequential(nn.Conv2d(in_ch, num_filters, (10, num_feats), 1),
@@ -82,4 +94,7 @@ class TextNet(nn.Module):
         return x
 
     def freeze_embedding_layer(self):
+        """
+        Method to freeze the gradients for the embedding layer.
+        """
         self._emb.weight.requires_grad = False
