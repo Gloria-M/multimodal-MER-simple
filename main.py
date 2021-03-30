@@ -108,7 +108,7 @@ if __name__ == '__main__':
                         help="train, validation and test sets size. NOTE: must sum up to 1")
 
     parser.add_argument('--audio_exetnsion', type=str, default='mp3',
-                        help="extension of audio excerpts fom DEAM dataset")
+                        help="extension of audio samples in dataset")
     parser.add_argument('--mfcc_mean', type=float, default=-1.414, help="train MFCCs mean")
     parser.add_argument('--mfcc_std', type=float, default=52.411, help="train MFCCs standard deviation")
 
